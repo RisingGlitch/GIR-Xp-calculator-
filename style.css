@@ -1,16 +1,18 @@
-#block * {
+#page * {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
 
-#block > *:not(.selectable) {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
+body::-webkit-scrollbar {
+    display: none;
 }
 
-#block button:hover {
+#page *:not(.selectable) {
+    user-select: none;
+}
+
+#page button:hover {
     cursor: pointer;
 }
 
@@ -19,22 +21,16 @@ body {
     background-image: url("background.png");
     background-position: top left;
     background-repeat: no-repeat;
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
 }
 
-#block p {
+#page p {
     color: white;
 }
 
-#block h1 {
+#page h1 {
     color: white;
     font-size: 3.5vw;
     font-weight: bold;
@@ -42,33 +38,22 @@ body {
     padding-bottom: 0px;
 }
 
-#block button {
+#page button {
     background-color: rgb(25, 25, 25);
     color: white;
     padding: 15px;
     border: 1px solid white;
     border-radius: 10px;
-    -webkit-filter: brightness(2);
     filter: brightness(2);
 }
 
-#block a {
+#page a {
     text-decoration: none;
     color: #007BFF;
 }
 
-#bg {
-    min-width: 100vw;
-    min-height: 100vh;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: -1;
-}
-
-#block {
+#page {
     background-color: #101820B2;
-    -webkit-filter: brightness(0.8);
     filter: brightness(0.8);
     opacity: 0.7;
     text-align: center;
@@ -76,10 +61,7 @@ body {
     padding: 35px;
     border-radius: 25px;
     align-items: center;
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column;
     flex-direction: column;
     padding-top: 0;
     margin-top: 30px;
@@ -116,10 +98,27 @@ body {
     color: white;
 }
 
-.credit {
+.credits {
     opacity: 0.7;
 }
 
 .inputBlock:nth-of-type(1) {
     margin-top: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.block {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
