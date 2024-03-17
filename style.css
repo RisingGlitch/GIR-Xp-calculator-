@@ -1,0 +1,120 @@
+#page * {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#page button:hover {
+    cursor: pointer;
+}
+
+body {
+    background-color: #23222B;
+    background-image: url("background.png");
+    background-position: top left;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page p {
+    color: white;
+}
+
+#page h1 {
+    color: white;
+    font-size: 3.5vw;
+    font-weight: bold;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+#page button {
+    background-color: rgb(25, 25, 25);
+    color: white;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+    filter: brightness(2);
+}
+
+#page a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+#page {
+    background-color: #101820B2;
+    filter: brightness(0.8);
+    opacity: 0.7;
+    text-align: center;
+    min-width: 0;
+    padding: 35px;
+    border-radius: 25px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: inline-flex;
+}
+
+.inputBlock {
+    display: flex;
+    text-align: left !important;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 10px;
+}
+
+.inputBlock input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    border: none;
+}
+
+.inputBlock input:focus {
+    outline: none;
+}
+
+.inputBlock label {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    color: white;
+}
+
+.credits {
+    opacity: 0.7;
+}
+
+.inputBlock:nth-of-type(1) {
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.block {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
