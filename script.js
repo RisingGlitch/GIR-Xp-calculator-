@@ -12,29 +12,31 @@ function xpToLevel(currentXP = 0) {
     let level = 0;
     let xp = 0;
     while (true) {
-        const nextXp = xp + 45 * level * (Math.floor(level / 10) + 1);
-        if (nextXp > currentXP) {
+        const nextXP = xp + 45 * level * (Math.floor(level / 10) + 1);
+        if (nextXP > currentXP) {
             return level + 1;
         }
-        xp = nextXp;
+        xp = nextXP;
         level++;
     }
 }
 
 $(document).ready(function() {
-    $("#levelUpBlock input").keypress(function(event) {
+    $("#levelUpBlock input, #customXP, #customLevel").keypress(function(event) {
         if (event.key === "Enter" || event.which === 13) {
-            calculate();
-        }
-    });
-    $("#customXP").keypress(function(event) {
-        if (event.key === "Enter" || event.which === 13) {
-            customXPToLevel();
-        }
-    });
-    $("#customLevel").keypress(function(event) {
-        if (event.key === "Enter" || event.which === 13) {
-            customLevelToXP();
+            var id = $(this).attr("id");
+            switch(id) {
+                case "currentXP":
+                case "targetLevel":
+                    calculate();
+                    break;
+                case "customXP":
+                    customXPToLevel();
+                    break;
+                case "customLevel":
+                    customLevelToXP();
+                    break;
+            }
         }
     });
 });
@@ -45,12 +47,11 @@ function calculate() {
     if (targetLevelXP !== 0) {
         let xpResult = Math.max(targetLevelXP - currentXP, 0);
         let minMessages = Math.ceil(xpResult / 11);
-        let avgMessages = Math.ceil(minMessages / 2);
         $("#xpResult").text(`${xpResult} more`);
         $("#levelResult").text($("#targetLevel").val());
         $("#levelTotal").text(targetLevelXP);
         $("#minMessages").text(minMessages);
-        $("#avgMessages").text(avgMessages);
+        $("#avgMessages").text(minMessages * 2);
     } else {
         $("#xpResult").text("Less than 45");
         $("#levelResult").text($("#targetLevel").val() || "0");
@@ -62,14 +63,12 @@ function calculate() {
 
 function customXPToLevel() {
     let xp = $("#customXP").val() || 0;
-    let level = xpToLevel(xp);
-    $("#customResult").text(`${xp} XP is level ${level}`);
+    $("#customResult").text(`${xp} XP is level ${xpToLevel(xp)}`);
 }
 
 function customLevelToXP() {
     let level = $("#customLevel").val() || 0;
-    let xp = levelToXP(level);
-    $("#customResult").text(`Level ${level} is ${xp} XP`);
+    $("#customResult").text(`Level ${level} is ${levelToXP(level)} XP`);
 }
 
 function switchModes() {
