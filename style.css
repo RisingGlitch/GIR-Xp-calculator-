@@ -1,37 +1,33 @@
-@media only screen and (min-width: 768px) {
-
-    /* Not a mobile device */
-
-    #block {
-        position: absolute;
-        top: 50%;
-        left: 50%; 
-        transform: translate(-50%, -50%);
-    }
-}
-
-@media only screen and (max-width: 767px) {
-
-    /* Is a mobile device */
-
-    body {
-        overflow-y: scroll !important;
-    }
-
-    #bg {
-        display: none !important;
-    }
-}
-
 #block * {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
 
+#block > *:not(.selectable) {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+#block button:hover {
+    cursor: pointer;
+}
+
 body {
-    background-color: #1A191E;
-    overflow: hidden;
+    background-color: #23222B;
+    background-image: url("background.png");
+    background-position: top left;
+    background-repeat: no-repeat;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
 
 #block p {
@@ -39,7 +35,7 @@ body {
 }
 
 #block h1 {
-    color:white;
+    color: white;
     font-size: 3.5vw;
     font-weight: bold;
     padding: 20px;
@@ -47,11 +43,12 @@ body {
 }
 
 #block button {
-    background-color:rgb(25, 25, 25);
-    color:white;
+    background-color: rgb(25, 25, 25);
+    color: white;
     padding: 15px;
     border: 1px solid white;
     border-radius: 10px;
+    -webkit-filter: brightness(2);
     filter: brightness(2);
 }
 
@@ -71,6 +68,7 @@ body {
 
 #block {
     background-color: #101820B2;
+    -webkit-filter: brightness(0.8);
     filter: brightness(0.8);
     opacity: 0.7;
     text-align: center;
@@ -78,9 +76,15 @@ body {
     padding: 35px;
     border-radius: 25px;
     align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     padding-top: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: inline-flex;
 }
 
 .inputBlock {

@@ -3,28 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gir XP Calculator</title>
+        <title>GIR XP Calculator</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <img id="bg" src="background.png" />
         <div id="block">
             <h1>GIR Level Calculator</h1>
             <p>A simple leveling calculator for the <a href="https://discord.gg/jb" target="_blank">r/Jailbreak</a> GIR bot<br><br>
                If you have any issues, feel free to <a href="https://github.com/RisingGlitch/GIR-Xp-calculator-/issues" target="_blank">create a new issue</a></p>
             <span class="inputBlock">
-                <label for="currentLevel">Current Level</label>
-                <input id="currentLevel" type="number" placeholder="0">
+                <label for="currentXP">Current XP</label>
+                <input id="currentXP" type="number" placeholder="0">
             </span>
             <span class="inputBlock">
                 <label for="targetLevel">Target Level</label>
                 <input id="targetLevel" type="number" placeholder="15">
             </span>
-            <p>XP required: <span id="xpResult">0</span><br>
-                <span id="maxMessages">0</span> messages minimum (assuming 11xp/msg)<br>
+            <p class="selectable">XP required: <span id="xpResult">0</span><br>
+                <span id="minMessages">0</span> messages minimum (assuming 11xp/msg)<br>
                 <span id="avgMessages">0</span> messages average (assuming 5.5xp/msg)<br>
             </p><br>
             <button onclick="calculate()">Calculate!</button>
