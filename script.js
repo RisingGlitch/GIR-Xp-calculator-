@@ -27,6 +27,16 @@ $(document).ready(function() {
             calculate();
         }
     });
+    $("#customXP").keypress(function(event) {
+        if (event.key === "Enter" || event.which === 13) {
+            customXPToLevel();
+        }
+    });
+    $("#customLevel").keypress(function(event) {
+        if (event.key === "Enter" || event.which === 13) {
+            customLevelToXP();
+        }
+    });
 });
 
 function calculate() {
