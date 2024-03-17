@@ -13,13 +13,14 @@ body::-webkit-scrollbar {
 }
 
 body {
-    background-color: #23222B;
-    background-image: url("background.png");
-    background-position: top left;
-    background-repeat: no-repeat;
+    background-color: #1A191E;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top left;
 }
 
 #page p {
