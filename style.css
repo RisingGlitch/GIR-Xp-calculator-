@@ -8,10 +8,6 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-#page *:not(.selectable) {
-    user-select: none;
-}
-
 #page button:hover {
     cursor: pointer;
 }
