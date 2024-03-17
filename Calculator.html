@@ -1,0 +1,61 @@
+<html>
+    <style>
+        body {
+            background-color: rgb(25,25,25);
+        }
+        p {
+            color:white;
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+        p1 {
+            color:white;
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-size: 5vw;
+        }
+        button {
+            background-color:rgb(25,25,25);
+            color:white;
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+    </style>
+    <head>
+        <title> r/JB XP Canculator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <p1><b> GIR Leveling Canculator </b></p1>
+        <p>This is a simple leveling canculator for the GIR bot made by systemless_</p>
+        <p> it is poorly coded dont blame me, dm me any issues.</p>
+
+        <p>Current Level (required things will break otherwise)</p> <input id="1" placeholder="0"> 
+        <p>Current XP</p> <input id="2" placeholder="0"> 
+        <p>Target Level (required things will break otherwise)</p> <input id="3" placeholder="15"> 
+        <button onclick="cal()"> Canculate! </button>
+
+        <p id="value"></p>
+    </body>
+    
+    <script>
+        function cal() {
+            document.getElementById("value").innerHTML = (getLevel(document.getElementById(3).value) - getLevel(document.getElementById(1).value) - document.getElementById(2).value).toString() + " XP is needed."
+        }
+        function getLevel(currentXp) {
+            let level = 0;
+            let xp = 0;
+            while (level < currentXp-1) {
+                xp = xp + 45 * level * (Math.floor(level / 10)+1);
+                level++;
+            }
+            return xp;
+        }
+    
+    </script>
+</html>
