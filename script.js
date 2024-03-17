@@ -16,3 +16,12 @@ function getLevel(currentXp = 0) {
     }
     return xp;
 }
+
+let inputs = document.querySelectorAll(".inputBlock input")
+inputs.forEach(function(input) {
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter" || event.keyCode === 13) {
+            calculate();
+        }
+    });
+});
