@@ -31,7 +31,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <p1><b> GIR Leveling Canculator </b></p1>
+        <p1><b> GIR Leveling Calculator </b></p1>
         <p>This is a simple leveling canculator for the GIR bot made by systemless_</p>
         <p> it is poorly coded dont blame me, dm me any issues.</p>
 
@@ -45,7 +45,7 @@
     
     <script>
         function cal() {
-            document.getElementById("value").innerHTML = (getLevel(document.getElementById(3).value) - getLevel(document.getElementById(1).value) - document.getElementById(2).value).toString() + " XP is needed."
+            document.getElementById("value").innerHTML = (getLevel(document.getElementById(3).value) - getLevel(document.getElementById(1).value)).toString() + " XP is needed."
         }
         function getLevel(currentXp) {
             let level = 0;
