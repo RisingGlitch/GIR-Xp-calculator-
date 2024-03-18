@@ -63,7 +63,6 @@ body {
     margin-bottom: 30px;
     display: inline-flex;
     border: 2px solid #FFFFFF22;
-    opacity: 0.7;
 }
 
 .inputBlock {
@@ -118,4 +117,8 @@ body {
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+.opacity {
+    opacity: 0.7;
 }
