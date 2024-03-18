@@ -66,7 +66,7 @@ body {
     border: 2px solid #FFFFFF22;
 }
 
-.inputBlock {
+#page .inputBlock {
     display: flex;
     text-align: left !important;
     width: 80%;
@@ -76,7 +76,7 @@ body {
     margin: 10px;
 }
 
-.inputBlock input {
+#page .inputBlock input {
     width: 90%;
     padding: 10px;
     border-radius: 10px;
@@ -84,39 +84,39 @@ body {
     border: none;
 }
 
-.inputBlock input:focus {
+#page .inputBlock input:focus {
     outline: none;
 }
 
-.inputBlock label {
+#page .inputBlock label {
     position: absolute;
     top: -15px;
     left: 10px;
     color: white;
 }
 
-.inputBlock:nth-of-type(1) {
+#page .inputBlock:nth-of-type(1) {
     margin-top: 30px;
 }
 
-.hidden {
+#page .hidden {
     display: none !important;
 }
 
-.block {
+#page .block {
     width: 100%;
     align-items: center;
     display: flex;
     flex-direction: column;
 }
 
-.buttonRow {
+#page .buttonRow {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-.opacity {
+#page .opacity {
     opacity: 0.7;
 }
 
