@@ -12,10 +12,7 @@
     <body>
         <div id="page" class="opacity">
             <h1>GIR XP Calculator</h1>
-            <p>
-                A simple XP calculator for the <a href="https://discord.gg/jb" target="_blank">r/Jailbreak</a> Discord <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIR bot</a><br><br>
-                Feel free to create a <a href="https://github.com/RisingGlitch/GIR-Xp-calculator-/issues" target="_blank">new issue</a> or <a href="https://github.com/RisingGlitch/GIR-Xp-calculator-/pulls" target="_blank">pull request</a>
-            </p>
+            <p>XP calculator for the <a href="https://discord.gg/jb" target="_blank">r/Jailbreak</a> Discord <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIR bot</a><br></p>
             <span id="levelUpBlock" class="block">
                 <span class="inputBlock">
                     <label for="currentXP">Current XP <span class="opacity">(optional)</span></label>
@@ -40,13 +37,10 @@
                     <label for="customLevel">Level</label>
                     <input id="customLevel" type="number" placeholder="50">
                 </span>
-                <p>
-                    Result: <span id="customResult">No results</span><br>
-                </p>
+                <p><span id="customResult">No results</span></p>
             </span>
             <br>
             <span class="buttonRow">
-                <button onclick="switchModes()">Switch Modes</button>
                 <span id="levelUpButtons" class="buttonRow">
                     <button onclick="calculate()">Calculate</button>
                 </span>
@@ -55,8 +49,14 @@
                     <button onclick="customLevelToXP()">Level to XP</button>
                 </span>
             </span>
+            <hr>
+            <span class="buttonRow">
+                <button id="modeButton" onclick="switchModes()">Custom Mode</button>
+                <a href="https://github.com/RisingGlitch/GIR-Xp-calculator-" target="_blank"><button>GitHub</button></a>
+                <button onclick="toggleCredits()">Credits</button>
+            </span>
             <br>
-            <p class="credits">
+            <p id="credits" class="opacity hidden">
                 <b>Credits:</b><br><br>
                 Concept and levelToXP() by <a href="https://github.com/RisingGlitch" target="_blank">@systemless_</a><br>
                 Scripting, layout, and design by <a href="https://github.com/dleovl" target="_blank">@dleovl</a><br>

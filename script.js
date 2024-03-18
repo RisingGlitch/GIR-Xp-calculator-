@@ -63,7 +63,11 @@ function calculate() {
 
 function customXPToLevel() {
     let xp = $("#customXP").val() || 0;
-    $("#customResult").text(`${xp} XP is level ${xpToLevel(xp)}`);
+    if (xp < 45) {
+        $("#customResult").text("XP below 45 cannot be converted to level");
+    } else {
+        $("#customResult").text(`${xp} XP is level ${xpToLevel(xp)}`);
+    }
 }
 
 function customLevelToXP() {
@@ -71,7 +75,21 @@ function customLevelToXP() {
     $("#customResult").text(`Level ${level} is ${levelToXP(level)} XP`);
 }
 
+var isMainBlock = true;
 function switchModes() {
+    isMainBlock = !isMainBlock;
+    $("#xpResult, #levelResult, #levelTotal, #minMessages, #avgMessages").text(0);
+    $("#currentXP, #targetLevel, #customXP, #customLevel").val("");
+    $("#customResult").text("No results");
     $("#levelUpBlock, #levelUpButtons").toggleClass("hidden");
     $("#customBlock, #customButtons").toggleClass("hidden");
+    if (isMainBlock) {
+        $("#modeButton").text("Custom Mode");
+    } else {
+        $("#modeButton").text("Normal Mode");
+    }
+}
+
+function toggleCredits() {
+    $("#credits").toggleClass("hidden");
 }
