@@ -15,7 +15,7 @@
             <p>XP calculator for the <a href="https://discord.gg/jb" target="_blank">r/Jailbreak</a> Discord <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIR bot</a><br></p>
             <span id="levelUpBlock" class="block">
                 <span class="inputBlock">
-                    <label for="currentXP">Current XP <span class="opacity">(optional)</span></label>
+                    <label for="currentXP">Current XP</label>
                     <input id="currentXP" type="number" placeholder="0">
                 </span>
                 <span class="inputBlock">
@@ -24,8 +24,8 @@
                 </span>
                 <p>
                     <span id="xpResult">0</span> XP is required for level <span id="levelResult">0</span> (<span id="levelTotal">0</span> XP total)<br>
-                    <span id="minMessages">0</span> messages minimum (assuming 11 XP per message)<br>
-                    <span id="avgMessages">0</span> messages average (assuming 5.5 XP per message)<br>
+                    <span id="minMessages">0</span> messages minimum (11 XP/msg)<br>
+                    <span id="avgMessages">0</span> messages average (5.5 XP/msg)<br>
                 </p>
             </span>
             <span id="customBlock" class="block hidden">
@@ -39,6 +39,7 @@
                 </span>
                 <p><span id="customResult">No results</span></p>
             </span>
+            <sup class="opacity">Stretch Mode</sup>
             <br>
             <span class="buttonRow">
                 <span id="levelUpButtons" class="buttonRow">
@@ -51,7 +52,7 @@
             </span>
             <hr>
             <span class="buttonRow">
-                <button id="modeButton" onclick="switchModes()">Custom Mode</button>
+                <button id="modeButton" onclick="switchModes()">Toggle Mode</button>
                 <a href="https://github.com/RisingGlitch/GIR-Xp-calculator-" target="_blank"><button>GitHub</button></a>
                 <button onclick="toggleCredits()">Credits</button>
             </span>
