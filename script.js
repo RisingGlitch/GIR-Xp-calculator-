@@ -28,7 +28,6 @@ function calculate() { // void
     } else {
         $("#xpResult").text("< 45");
         $("#levelResult").text($("#targetLevel").val() || "0");
-        $("#levelTotal").text("< 45");
         $("#minMessages").text(0);
         $("#avgMessages").text(0);
     }
@@ -225,7 +224,7 @@ $(document).ready(function() { // void
 var isMainBlock = true;
 function switchModes() { // void
     isMainBlock = !isMainBlock;
-    $("#xpResult, #levelResult, #levelTotal, #minMessages, #avgMessages").text(0);
+    $("#xpResult, #levelResult, #minMessages, #avgMessages").text(0);
     $("#currentXP, #targetLevel, #customXP, #customLevel").val("");
     $("#customResult").text("No results");
     $("#levelUpBlock, #levelUpButtons, #customBlock, #customButtons").toggleClass("hidden");
