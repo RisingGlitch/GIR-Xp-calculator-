@@ -44,7 +44,7 @@ body::-webkit-scrollbar {
     margin-bottom: 0px;
 }
 
-#page p, #page sup {
+#page p, #page sup, #page label, #page .progressBlob span {
     color: white;
 }
 
@@ -127,4 +127,49 @@ body::-webkit-scrollbar {
 
 #page .opacity {
     opacity: 0.7;
+}
+
+#page .progressBlob {
+    width: 40px;
+    height: 40px;
+    background-color: #8795A9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page .progressBlock {
+    display: flex;
+    text-align: left;
+    gap: 15px;
+}
+
+#page .progressDisplayBlock {
+    height: 100%;
+}
+
+#page .progressStatistic {
+    display: flex;
+    flex-direction: column;
+}
+
+#page .progressStatistic progress {
+    width: 100%;
+    margin-top: 5px;
+}
+
+#page .hrText {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#page .hrText hr {
+    flex: 1;
+    width: 100px;
+}
+
+#page .hrText sup {
+    padding: 0 10px;
 }

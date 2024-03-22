@@ -23,10 +23,19 @@
                     <input id="targetLevel" type="number" placeholder="15">
                 </span>
                 <p>
-                    <span id="xpResult">0</span> XP is required for level <span id="levelResult">0</span> (<span id="levelTotal">0</span> XP total)<br>
+                    <span id="xpResult">0</span> XP needed for level <span id="levelResult">0</span><br>
                     <span id="minMessages">0</span> messages minimum (11 XP/msg)<br>
                     <span id="avgMessages">0</span> messages average (5.5 XP/msg)<br>
                 </p>
+                <span id="progress" class="progressBlock">
+                    <span class="progressStatistic">
+                        <label for="memberRank">To Member <span id="memberRankName">Plus</span> (<span id="memberRankXPUntil">6165</span> XP / <span id="memberRankPercentage">0</span>%)</label>
+                        <progress id="memberRank" value="0" max="100">
+                    </span>
+                    <span class="progressDisplayBlock">
+                        <span id="progressBlob" class="progressBlob"><span id="progressBlobNote">L</span></span>
+                    </span>
+                </span>
             </span>
             <span id="customBlock" class="block hidden">
                 <span class="inputBlock">
@@ -39,7 +48,6 @@
                 </span>
                 <p><span id="customResult">No results</span></p>
             </span>
-            <sup class="opacity">Stretch Mode</sup>
             <br>
             <span class="buttonRow">
                 <span id="levelUpButtons" class="buttonRow">
@@ -50,7 +58,11 @@
                     <button onclick="customLevelToXP()">Level to XP</button>
                 </span>
             </span>
-            <hr>
+            <span class="hrText">
+                <hr>
+                <sup class="opacity">Stretch Mode</sup>
+                <hr>
+            </span>
             <span class="buttonRow">
                 <button id="modeButton" onclick="switchModes()">Toggle Mode</button>
                 <a href="https://github.com/RisingGlitch/GIR-Xp-calculator-" target="_blank"><button>GitHub</button></a>
@@ -59,7 +71,7 @@
             <br>
             <p id="credits" class="opacity hidden">
                 <b>Credits:</b><br><br>
-                Concept and levelToXP() by <a href="https://github.com/RisingGlitch" target="_blank">@systemless_</a> on Discord<br>
+                Concept and levelToXP() by <a href="https://github.com/RisingGlitch" target="_blank">@systemless_</a><br>
                 Scripting, layout, and design by <a href="https://github.com/dleovl" target="_blank">@dleovl</a><br>
                 XP calculation formula from <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIRRewrite</a>
             </p>

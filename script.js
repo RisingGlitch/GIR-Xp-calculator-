@@ -1,14 +1,30 @@
-function calculate() {
+function calculate() { // void
     let currentXP = parseInt($("#currentXP").val()) || 0;
     let targetLevelXP = levelToXP(parseInt($("#targetLevel").val())) || 0;
     if (targetLevelXP !== 0 && currentXP !== 0) {
         let xpResult = Math.max(targetLevelXP - currentXP, 0);
         let minMessages = Math.ceil(xpResult / 11);
+        let currentLevel = xpToLevel(currentXP);
+        let nextRankLevel = getNextRankLevel(currentLevel);
+        let nextRankTotalXP = levelToXP(nextRankLevel);
+        let baseRankLevelXP = levelToXP(getBaseRankLevel(xpToLevel(currentXP)));
+        let rankPercentage = ((currentXP - baseRankLevelXP) / (nextRankTotalXP - baseRankLevelXP)) * 100;
         $("#xpResult").text(`${xpResult} more`);
         $("#levelResult").text($("#targetLevel").val());
-        $("#levelTotal").text(targetLevelXP);
         $("#minMessages").text(minMessages);
         $("#avgMessages").text(minMessages * 2);
+        $("#progressBlob").css("background-color", getRoleColor(currentLevel));
+        $("#memberRankName").text(getRoleName(nextRankLevel));
+        if (Math.sign(nextRankTotalXP - currentXP) === -1) {
+            $("#memberRankXPUntil").text(0);
+            $("#memberRank").val(100);
+            $("#memberRankPercentage").text(100);
+        } else {
+            $("#memberRankXPUntil").text(nextRankTotalXP - currentXP);
+            $("#memberRank").val(Math.trunc(rankPercentage));
+            $("#memberRankPercentage").text(rankPercentage.toFixed(2));
+        }
+        $("#progressBlobNote").text(getRoleNote(currentLevel));
     } else {
         $("#xpResult").text("< 45");
         $("#levelResult").text($("#targetLevel").val() || "0");
@@ -18,7 +34,7 @@ function calculate() {
     }
 }
 
-function customXPToLevel() {
+function customXPToLevel() { // void
     let xp = $("#customXP").val() || 0;
     if (xp < 45) {
         $("#customResult").text("XP below 45 cannot be converted to level");
@@ -30,7 +46,7 @@ function customXPToLevel() {
     }
 }
 
-function customLevelToXP() {
+function customLevelToXP() { // void
     let level = $("#customLevel").val() || 0;
     if (level < 3) {
         $("#customResult").text("Level below 3 cannot be converted to XP");
@@ -41,7 +57,7 @@ function customLevelToXP() {
     }
 }
 
-function levelToXP(currentLevel = 0) {
+function levelToXP(currentLevel = 0) { // int
     let level = 0;
     let xp = 0;
     while (level < currentLevel - 1) {
@@ -51,7 +67,7 @@ function levelToXP(currentLevel = 0) {
     return xp;
 }
 
-function xpToLevel(currentXP = 0) {
+function xpToLevel(currentXP = 0) { // int
     let level = 0;
     let xp = 0;
     while (true) {
@@ -64,7 +80,129 @@ function xpToLevel(currentXP = 0) {
     }
 }
 
-$(document).ready(function() {
+const roleColors = {
+    0: "#8795A9",
+    15: "#A67BE6",
+    30: "#C081D1",
+    50: "#E69396",
+    75: "#7B97CB",
+    100: "#F9B856"
+};
+
+const roleNames = {
+    0: "",
+    15: "Plus",
+    30: "Pro",
+    50: "Edition",
+    75: "One",
+    100: "Ultra"
+};
+
+const roleNotes = {
+    0: "L",
+    15: "+",
+    30: "O",
+    50: "✨",
+    75: "1",
+    100: "⚡"
+};
+
+function getRoleColor(level) { // string
+    if (level < 0) {
+        return roleColors[0];
+    } else if (level > 100) {
+        return roleColors[100];
+    } else if (roleColors.hasOwnProperty(level)) {
+        return roleColors[level];
+    }
+
+    let lastKey = 0;
+    for (const key in roleColors) {
+        if (level >= parseInt(key)) {
+            lastKey = parseInt(key);
+        } else {
+            break;
+        }
+    }
+    return roleColors[lastKey];
+}
+
+function getRoleNote(level) { // string
+    if (level < 0) {
+        return roleNotes[0];
+    } else if (level > 100) {
+        return roleNotes[100];
+    } else if (roleNotes.hasOwnProperty(level)) {
+        return roleNotes[level];
+    }
+
+    let lastKey = 0;
+    for (const key in roleNotes) {
+        if (level >= parseInt(key)) {
+            lastKey = parseInt(key);
+        } else {
+            break;
+        }
+    }
+    return roleNotes[lastKey];
+}
+
+function getRoleName(level) { // string
+    if (level <= 0) {
+        return roleNames[0];
+    } else if (level >= 100) {
+        return roleNames[100];
+    } else if (roleNames.hasOwnProperty(level)) {
+        return roleNames[level];
+    }
+
+    let lastKey = 0;
+    for (const key in roleNames) {
+        if (level >= parseInt(key)) {
+            lastKey = parseInt(key);
+        } else {
+            break;
+        }
+    }
+    return roleNames[lastKey];
+}
+
+function getNextRankLevel(level) { // int
+    if (level <= 0) {
+        return 15;
+    } else if (level >= 100) {
+        return 100;
+    }
+
+    let nextKey = 0;
+    for (const key in roleColors) {
+        if (parseInt(key) > level) {
+            nextKey = parseInt(key);
+            break;
+        }
+    }
+    return nextKey;
+}
+
+function getBaseRankLevel(level) { // int
+    if (level <= 0) {
+        return 0;
+    } else if (level >= 100) {
+        return 100;
+    }
+
+    let baseLevel = 0;
+    for (const key in roleColors) {
+        if (parseInt(key) <= level) {
+            baseLevel = parseInt(key);
+        } else {
+            break;
+        }
+    }
+    return baseLevel;
+}
+
+$(document).ready(function() { // void
     $("#levelUpBlock input, #customXP, #customLevel").keypress(function(event) {
         if (event.key === "Enter" || event.which === 13) {
             var id = $(this).attr("id");
@@ -85,7 +223,7 @@ $(document).ready(function() {
 });
 
 var isMainBlock = true;
-function switchModes() {
+function switchModes() { // void
     isMainBlock = !isMainBlock;
     $("#xpResult, #levelResult, #levelTotal, #minMessages, #avgMessages").text(0);
     $("#currentXP, #targetLevel, #customXP, #customLevel").val("");
@@ -98,6 +236,6 @@ function switchModes() {
     }
 }
 
-function toggleCredits() {
+function toggleCredits() { // void
     $("#credits").toggleClass("hidden");
 }
