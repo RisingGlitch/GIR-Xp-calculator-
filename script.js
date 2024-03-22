@@ -230,9 +230,9 @@ function switchModes() { // void
     $("#customResult").text("No results");
     $("#levelUpBlock, #levelUpButtons, #customBlock, #customButtons").toggleClass("hidden");
     if (isMainBlock) {
-        $("#page sup").text("Stretch Mode");
+        $("#page > .hrText sup").text("Stretch Mode");
     } else {
-        $("#page sup").text("Custom Mode");
+        $("#page > .hrText sup").text("Custom Mode");
     }
 }
 
