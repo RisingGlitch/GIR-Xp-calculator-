@@ -3,7 +3,6 @@ function calculate() { // void
     let targetLevelXP = levelToXP(parseInt($("#targetLevel").val())) || 0;
     if (targetLevelXP !== 0 && currentXP !== 0) {
         let xpResult = Math.max(targetLevelXP - currentXP, 0);
-        let minMessages = Math.ceil(xpResult / 11);
         let currentLevel = xpToLevel(currentXP);
         let nextRankLevel = getNextRankLevel(currentLevel);
         let nextRankTotalXP = levelToXP(nextRankLevel);
@@ -11,8 +10,8 @@ function calculate() { // void
         let rankPercentage = ((currentXP - baseRankLevelXP) / (nextRankTotalXP - baseRankLevelXP)) * 100;
         $("#xpResult").text(`${xpResult} more`);
         $("#levelResult").text($("#targetLevel").val());
-        $("#minMessages").text(minMessages);
-        $("#avgMessages").text(minMessages * 2);
+        $("#minMessages").text(Math.ceil(xpResult / 11));
+        $("#avgMessages").text(Math.ceil(xpResult / 5.5));
         $("#progressBlob").css("background-color", getRoleColor(currentLevel));
         $("#memberRankName").text(getRoleName(nextRankLevel));
         if (Math.sign(nextRankTotalXP - currentXP) === -1) {
@@ -51,8 +50,7 @@ function customLevelToXP() { // void
         $("#customResult").text("Level below 3 cannot be converted to XP");
     } else {
         let xp = levelToXP(level);
-        let minMessages = Math.ceil(xp / 11);
-        $("#customResult").html(`Level ${level} requires ${xp} XP total<br>${minMessages} messages minimum (11 XP/msg)<br>${minMessages * 2} messages average (5.5 XP/msg)`);    
+        $("#customResult").html(`Level ${level} requires ${xp} XP total<br>${Math.ceil(xp / 11)} messages minimum (11 XP/msg)<br>${Math.ceil(xp / 5.5)} messages average (5.5 XP/msg)`);    
     }
 }
 
