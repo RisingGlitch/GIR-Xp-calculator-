@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GIR XP Calculator</title>
+        <title>GIR UwUs Calculator</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -11,25 +11,25 @@
     </head>
     <body>
         <div id="page" class="opacity">
-            <h1>GIR XP Calculator</h1>
-            <p>XP calculator for the <a href="https://discord.gg/jb" target="_blank">r/Jailbreak</a> Discord <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIR bot</a><br></p>
+            <h1>GIR UwUs Calculator</h1>
+            <p>UwUs calculator for the <a href="https://discord.gg/jb" target="_blank">r/Jailbreak</a> Discord <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIR bot</a><br></p>
             <span id="levelUpBlock" class="block">
                 <span class="inputBlock">
-                    <label for="currentXP">Current XP <span class="opacity">(required)</span></label>
-                    <input id="currentXP" type="number" placeholder="0">
+                    <label for="currentUwUs">Current UwUs <span class="opacity">(required)</span></label>
+                    <input id="currentUwUs" type="number" placeholder="0">
                 </span>
                 <span class="inputBlock">
                     <label for="targetLevel">Target Level <span class="opacity">(required)</span></label>
                     <input id="targetLevel" type="number" placeholder="15">
                 </span>
                 <p>
-                    <span id="xpResult">0</span> XP needed for level <span id="levelResult">0</span><br>
-                    <span id="minMessages">0</span> messages minimum (11 XP/msg)<br>
-                    <span id="avgMessages">0</span> messages average (5.5 XP/msg)<br>
+                    <span id="UwUsResult">0</span> UwUs needed for level <span id="levelResult">0</span><br>
+                    <span id="minMessages">0</span> messages minimum (11 UwUs/msg)<br>
+                    <span id="avgMessages">0</span> messages average (5.5 UwUs/msg)<br>
                 </p>
                 <span id="progress" class="progressBlock">
                     <span class="progressStatistic">
-                        <label for="memberRank">To Member <span id="memberRankName">Plus</span> (<span id="memberRankXPUntil">6165</span> XP / <span id="memberRankPercentage">0</span>%)</label>
+                        <label for="memberRank">To Member <span id="memberRankName">Plus</span> (<span id="memberRankUwUsUntil">6165</span> UwUs / <span id="memberRankPercentage">0</span>%)</label>
                         <progress id="memberRank" value="0" max="100">
                     </span>
                     <span class="progressDisplayBlock">
@@ -39,8 +39,8 @@
             </span>
             <span id="customBlock" class="block hidden">
                 <span class="inputBlock">
-                    <label for="customXP">XP</label>
-                    <input id="customXP" type="number" placeholder="199350">
+                    <label for="customUwUs">UwUs</label>
+                    <input id="customUwUs" type="number" placeholder="199350">
                 </span>
                 <span class="inputBlock">
                     <label for="customLevel">Level</label>
@@ -54,8 +54,8 @@
                     <button onclick="calculate()">Calculate</button>
                 </span>
                 <span id="customButtons" class="buttonRow hidden">
-                    <button onclick="customXPToLevel()">XP to Level</button>
-                    <button onclick="customLevelToXP()">Level to XP</button>
+                    <button onclick="customUwUsToLevel()">UwUs to Level</button>
+                    <button onclick="customLevelToUwUs()">Level to UwUs</button>
                 </span>
             </span>
             <span class="hrText">
@@ -65,16 +65,16 @@
             </span>
             <span class="buttonRow">
                 <button id="modeButton" onclick="switchModes()">Toggle Mode</button>
-                <a href="https://github.com/RisingGlitch/GIR-Xp-calculator-" target="_blank"><button>GitHub</button></a>
+                <a href="https://github.com/RisingGlitch/GIR-UwUs-calculator-" target="_blank"><button>GitHub</button></a>
                 <button onclick="toggleCredits()">Credits</button>
             </span>
             <br>
             <sup class="opacity"><b>Spam will not be tolerated.</b></sup>
             <p id="credits" class="opacity hidden">
                 <b>Credits:</b><br><br>
-                Concept and levelToXP() by <a href="https://github.com/RisingGlitch" target="_blank">@systemless_</a><br>
+                Concept and levelToUwUs() by <a href="https://github.com/RisingGlitch" target="_blank">@systemless_</a><br>
                 Scripting, layout, and design by <a href="https://github.com/dleovl" target="_blank">@dleovl</a><br>
-                XP calculation formula from <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIRRewrite</a>
+                UwUs calculation formula from <a href="https://github.com/DiscordGIR/GIRRewrite" target="_blank">GIRRewrite</a>
             </p>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
