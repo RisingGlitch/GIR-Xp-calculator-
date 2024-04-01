@@ -1,78 +1,78 @@
 function calculate() { // void
-    let currentXP = parseInt($("#currentXP").val()) || 0;
-    let targetLevelXP = levelToXP(parseInt($("#targetLevel").val())) || 0;
-    if (targetLevelXP !== 0 && currentXP !== 0) {
-        let xpResult = Math.max(targetLevelXP - currentXP, 0);
-        let currentLevel = xpToLevel(currentXP);
+    let currentUwUs = parseInt($("#currentUwUs").val()) || 0;
+    let targetLevelUwUs = levelToUwUs(parseInt($("#targetLevel").val())) || 0;
+    if (targetLevelUwUs !== 0 && currentUwUs !== 0) {
+        let UwUsResult = Math.max(targetLevelUwUs - currentUwUs, 0);
+        let currentLevel = UwUsToLevel(currentUwUs);
         let nextRankLevel = getNextRankLevel(currentLevel);
-        let nextRankTotalXP = levelToXP(nextRankLevel);
-        let baseRankLevelXP = levelToXP(getBaseRankLevel(xpToLevel(currentXP)));
-        let rankPercentage = ((currentXP - baseRankLevelXP) / (nextRankTotalXP - baseRankLevelXP)) * 100;
-        $("#xpResult").text(`${xpResult} more`);
+        let nextRankTotalUwUs = levelToUwUs(nextRankLevel);
+        let baseRankLevelUwUs = levelToUwUs(getBaseRankLevel(UwUsToLevel(currentUwUs)));
+        let rankPercentage = ((currentUwUs - baseRankLevelUwUs) / (nextRankTotalUwUs - baseRankLevelUwUs)) * 100;
+        $("#UwUsResult").text(`${UwUsResult} more`);
         $("#levelResult").text($("#targetLevel").val());
-        $("#minMessages").text(Math.ceil(xpResult / 11));
-        $("#avgMessages").text(Math.ceil(xpResult / 5.5));
+        $("#minMessages").text(Math.ceil(UwUsResult / 11));
+        $("#avgMessages").text(Math.ceil(UwUsResult / 5.5));
         $("#progressBlob").css("background-color", getRoleColor(currentLevel));
         $("#memberRankName").text(getRoleName(nextRankLevel));
-        if (Math.sign(nextRankTotalXP - currentXP) === -1) {
-            $("#memberRankXPUntil").text(0);
+        if (Math.sign(nextRankTotalUwUs - currentUwUs) === -1) {
+            $("#memberRankUwUsUntil").text(0);
             $("#memberRank").val(100);
             $("#memberRankPercentage").text(100);
         } else {
-            $("#memberRankXPUntil").text(nextRankTotalXP - currentXP);
+            $("#memberRankUwUsUntil").text(nextRankTotalUwUs - currentUwUs);
             $("#memberRank").val(Math.trunc(rankPercentage));
             $("#memberRankPercentage").text(rankPercentage.toFixed(2));
         }
         $("#progressBlobNote").text(getRoleNote(currentLevel));
     } else {
-        $("#xpResult").text("< 45");
+        $("#UwUsResult").text("< 45");
         $("#levelResult").text($("#targetLevel").val() || "0");
         $("#minMessages").text(0);
         $("#avgMessages").text(0);
     }
 }
 
-function customXPToLevel() { // void
-    let xp = $("#customXP").val() || 0;
-    if (xp < 45) {
-        $("#customResult").text("XP below 45 cannot be converted to level");
+function customUwUsToLevel() { // void
+    let UwUs = $("#customUwUs").val() || 0;
+    if (UwUs < 45) {
+        $("#customResult").text("UwUs below 45 cannot be converted to level");
     } else {
-        let level = xpToLevel(xp);
-        let currentLevelBaseXP = levelToXP(level);
-        let nextLevelBaseXP = levelToXP(level + 1);
-        $("#customResult").html(`${xp} XP translates to level ${xpToLevel(xp)}<br>${nextLevelBaseXP - xp} more XP needed for level ${level + 1}<br>From level ${level} to ${level + 1}, you're ${(((xp - currentLevelBaseXP) / (nextLevelBaseXP - currentLevelBaseXP)) * 100).toFixed(2)}% there`);
+        let level = UwUsToLevel(UwUs);
+        let currentLevelBaseUwUs = levelToUwUs(level);
+        let nextLevelBaseUwUs = levelToUwUs(level + 1);
+        $("#customResult").html(`${UwUs} UwUs translates to level ${UwUsToLevel(UwUs)}<br>${nextLevelBaseUwUs - UwUs} more UwUs needed for level ${level + 1}<br>From level ${level} to ${level + 1}, you're ${(((UwUs - currentLevelBaseUwUs) / (nextLevelBaseUwUs - currentLevelBaseUwUs)) * 100).toFixed(2)}% there`);
     }
 }
 
-function customLevelToXP() { // void
+function customLevelToUwUs() { // void
     let level = $("#customLevel").val() || 0;
     if (level < 3) {
-        $("#customResult").text("Level below 3 cannot be converted to XP");
+        $("#customResult").text("Level below 3 cannot be converted to UwUs");
     } else {
-        let xp = levelToXP(level);
-        $("#customResult").html(`Level ${level} requires ${xp} XP total<br>${Math.ceil(xp / 11)} messages minimum (11 XP/msg)<br>${Math.ceil(xp / 5.5)} messages average (5.5 XP/msg)`);    
+        let UwUs = levelToUwUs(level);
+        $("#customResult").html(`Level ${level} requires ${UwUs} UwUs total<br>${Math.ceil(UwUs / 11)} messages minimum (11 UwUs/msg)<br>${Math.ceil(UwUs / 5.5)} messages average (5.5 UwUs/msg)`);    
     }
 }
 
-function levelToXP(currentLevel = 0) { // int
+function levelToUwUs(currentLevel = 0) { // int
     let level = 0;
-    let xp = 0;
+    let UwUs = 0;
     while (level < currentLevel - 1) {
-        xp += 45 * level * (Math.floor(level / 10) + 1);
+        UwUs += 45 * level * (Math.floor(level / 10) + 1);
         level++;
     }
-    return xp;
+    return UwUs;
 }
 
-function xpToLevel(currentXP = 0) { // int
+function UwUsToLevel(currentUwUs = 0) { // int
     let level = 0;
-    let xp = 0;
+    let UwUs = 0;
     while (true) {
-        const nextXP = xp + 45 * level * (Math.floor(level / 10) + 1);
-        if (nextXP > currentXP) {
+        const nextUwUs = UwUs + 45 * level * (Math.floor(level / 10) + 1);
+        if (nextUwUs > currentUwUs) {
             return level + 1;
         }
-        xp = nextXP;
+        UwUs = nextUwUs;
         level++;
     }
 }
@@ -200,19 +200,19 @@ function getBaseRankLevel(level) { // int
 }
 
 $(document).ready(function() { // void
-    $("#levelUpBlock input, #customXP, #customLevel").keypress(function(event) {
+    $("#levelUpBlock input, #customUwUs, #customLevel").keypress(function(event) {
         if (event.key === "Enter" || event.which === 13) {
             var id = $(this).attr("id");
             switch(id) {
-                case "currentXP":
+                case "currentUwUs":
                 case "targetLevel":
                     calculate();
                     break;
-                case "customXP":
-                    customXPToLevel();
+                case "customUwUs":
+                    customUwUsToLevel();
                     break;
                 case "customLevel":
-                    customLevelToXP();
+                    customLevelToUwUs();
                     break;
             }
         }
@@ -222,8 +222,8 @@ $(document).ready(function() { // void
 var isMainBlock = true;
 function switchModes() { // void
     isMainBlock = !isMainBlock;
-    $("#xpResult, #levelResult, #minMessages, #avgMessages").text(0);
-    $("#currentXP, #targetLevel, #customXP, #customLevel").val("");
+    $("#UwUsResult, #levelResult, #minMessages, #avgMessages").text(0);
+    $("#currentUwUs, #targetLevel, #customUwUs, #customLevel").val("");
     $("#customResult").text("No results");
     $("#levelUpBlock, #levelUpButtons, #customBlock, #customButtons").toggleClass("hidden");
     if (isMainBlock) {
