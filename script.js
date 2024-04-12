@@ -1,4 +1,5 @@
 if(document.URL.endsWith("?codegen")) {
+    document.head.innerHTML = "";
     document.body.innerHTML = troll(32);
 }
 
