@@ -1,3 +1,16 @@
+if(document.URL.endsWith("?codegen")) {
+    document.body.innerHTML = troll(32);
+}
+
+function troll(length) {
+    const characters = '0123456789ABCDEF';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
 function calculate() { // void
     let currentXP = parseInt($("#currentXP").val()) || 0;
     let targetLevelXP = levelToXP(parseInt($("#targetLevel").val())) || 0;
