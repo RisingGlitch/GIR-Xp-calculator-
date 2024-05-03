@@ -239,11 +239,11 @@ function switchModes() { // void
     $("#xpResult, #levelResult, #minMessages, #avgMessages, #memberRankPercentage").text(0);
     $("#currentXP, #targetLevel, #customXP, #customLevel").val("");
     $("#customResult").text("No results");
-    $("#memberRankName").text("Member Plus");
+    $("#memberRankName").text("Plus");
     // who cares about getting stuff dynamically :clueless:
     $("#memberRankXPUntil").text(6165);
     $("#memberRank").val(0);
-    $("#progressBlobNote").text("L");
+    $("#progressBlobNote").text("🤓");
     $("#progressBlob").css("background-color", "#8795A9");
     $("#levelUpBlock, #levelUpButtons, #customBlock, #customButtons").toggleClass("hidden");
     if (isMainBlock) {
