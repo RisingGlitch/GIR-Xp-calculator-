@@ -1,11 +1,11 @@
 if(document.URL.endsWith("?codegen")) {
     document.head.innerHTML = "";
-    document.body.innerHTML = troll(32);
+    document.body.innerHTML = chargen(32);
 }
 
-function troll(length) {
-    const characters = '0123456789ABCDEF';
-    let result = '';
+function chargen(length) { // string
+    const characters = "0123456789ABCDEF";
+    let result = "";
     for (let i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
@@ -110,7 +110,7 @@ const roleNames = {
 };
 
 const roleNotes = {
-    0: "L",
+    0: "🤓",
     15: "+",
     30: "O",
     50: "✨",
@@ -236,9 +236,15 @@ $(document).ready(function() { // void
 var isMainBlock = true;
 function switchModes() { // void
     isMainBlock = !isMainBlock;
-    $("#xpResult, #levelResult, #minMessages, #avgMessages").text(0);
+    $("#xpResult, #levelResult, #minMessages, #avgMessages, #memberRankPercentage").text(0);
     $("#currentXP, #targetLevel, #customXP, #customLevel").val("");
     $("#customResult").text("No results");
+    $("#memberRankName").text("Member Plus");
+    // who cares about getting stuff dynamically :clueless:
+    $("#memberRankXPUntil").text(6165);
+    $("#memberRank").val(0);
+    $("#progressBlobNote").text("L");
+    $("#progressBlob").css("background-color", "#8795A9");
     $("#levelUpBlock, #levelUpButtons, #customBlock, #customButtons").toggleClass("hidden");
     if (isMainBlock) {
         $("#page > .hrText sup").text("Stretch Mode");
