@@ -240,11 +240,10 @@ function switchModes() { // void
     $("#currentXP, #targetLevel, #customXP, #customLevel").val("");
     $("#customResult").text("No results");
     $("#memberRankName").text("Plus");
-    // who cares about getting stuff dynamically :clueless:
-    $("#memberRankXPUntil").text(6165);
+    $("#memberRankXPUntil").text(levelToXP(15));
     $("#memberRank").val(0);
-    $("#progressBlobNote").text("🤓");
-    $("#progressBlob").css("background-color", "#8795A9");
+    $("#progressBlobNote").text(getRoleNote(0));
+    $("#progressBlob").css("background-color", getRoleColor(0));
     $("#levelUpBlock, #levelUpButtons, #customBlock, #customButtons").toggleClass("hidden");
     if (isMainBlock) {
         $("#page > .hrText sup").text("Stretch Mode");
