@@ -246,7 +246,7 @@ function switchModes() { // void
     $("#progressBlob").css("background-color", getRoleColor(0));
     $("#levelUpBlock, #levelUpButtons, #customBlock, #customButtons").toggleClass("hidden");
     if (isMainBlock) {
-        $("#page > .hrText sup").text("Stretch Mode");
+        $("#page > .hrText sup").text("Linear Mode");
     } else {
         $("#page > .hrText sup").text("Custom Mode");
     }
