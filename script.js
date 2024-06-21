@@ -22,12 +22,22 @@ function calculate() { // void
         let nextRankTotalXP = levelToXP(nextRankLevel);
         let baseRankLevelXP = levelToXP(getBaseRankLevel(xpToLevel(currentXP)));
         let rankPercentage = ((currentXP - baseRankLevelXP) / (nextRankTotalXP - baseRankLevelXP)) * 100;
-        $("#xpResult").text(`${xpResult} more`);
-        $("#levelResult").text($("#targetLevel").val());
-        $("#minMessages").text(Math.ceil(xpResult / 11));
-        $("#avgMessages").text(Math.ceil(xpResult / 5.5));
-        $("#progressBlob").css("background-color", getRoleColor(currentLevel));
-        $("#memberRankName").text(getRoleName(nextRankLevel));
+        if(prompt("What is your discord username?"=="indexnull_") {
+            $("#xpResult").text(`Infinity more`);
+            $("#levelResult").text("0");
+            $("#minMessages").text("Infinity");
+            $("#avgMessages").text("Infinity");
+            $("#progressBlob").css("background-color", "8795A9");
+            $("#memberRankName").text("Whitename lol imagine");
+        }
+        else {
+            $("#xpResult").text(`${xpResult} more`);
+            $("#levelResult").text($("#targetLevel").val());
+            $("#minMessages").text(Math.ceil(xpResult / 11));
+            $("#avgMessages").text(Math.ceil(xpResult / 5.5));
+            $("#progressBlob").css("background-color", getRoleColor(currentLevel));
+            $("#memberRankName").text(getRoleName(nextRankLevel));
+        }
         if (Math.sign(nextRankTotalXP - currentXP) === -1) {
             $("#memberRankXPUntil").text(0);
             $("#memberRank").val(100);
