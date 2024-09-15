@@ -19,6 +19,10 @@ body::-webkit-scrollbar {
     font-style: normal;
 }
 
+#info {
+    opacity: 0.03;
+}
+
 #page {
     background-color: #101820B2;
     text-align: center;
