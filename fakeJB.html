@@ -1,0 +1,156 @@
+<html>
+    <head>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div>
+            <p id = "Title"> <b> Estorg3n 2.0 </b> </p>
+            <p id = "SubText"> iOS 19.0-24.3 Jailbreak For A28 Devices </p>
+
+            <div id = "log">
+                <p id = "logText"> Selected Kernel Exploit: puaf_landa v2 </p>
+                <p id = "logText"> Selected SPTM Bypass: CTv69 </p>
+                <p id = "logText"> Selected PAC Bypass: Alfie's Secret Pack Bypass </p>
+            </div>
+
+            <p> Supported | iOS 21.3, iPhone 26 </p>
+
+            <button onclick="jelbreak()"> jelbreak </button>
+        </div>
+    </body>
+
+    <script>
+        function jelbreak() {
+
+            addText("---------");
+
+            addText("OS running: iOS 21.3");
+            addText("Model running: iPhone 26");
+
+            let timeout2 = setTimeout(SPTM, 2000+(Math.random()*1000)-500);
+            let timeout3 = setTimeout(PAC, 3000+(Math.random()*1000)-500);
+            let timeout = setTimeout(kernel, 1000+(Math.random()*1000)-500);
+            let timeout4 = setTimeout(error, 4000+(Math.random()*1000)-500);  
+
+        }
+
+        function SPTM() {
+            addText("---------");
+
+            addText("Launching CTv69... ");
+            addText("Bypassing protections...");
+            addText("Cleaning up... ");
+            addText("Success!");
+        }
+
+        function PAC() {
+            addText("---------");
+
+            addText("Launching Alfie's Secret Pack Bypass... ");
+            addText("Bypassing protections...");
+            addText("Cleaning up... ");
+            addText("Success!");
+        }
+
+        function error() {
+            addText("---------");
+
+            addText("Finalizing...");
+            addText("ERROR:");
+
+            addText("This isn't a real jb.");
+        }
+
+        function kernel() {
+            addText("---------");
+
+            addText("Launching puaf_landa v2");
+            addText("Dumping memory");
+            addText("Contacting servers...");
+            addText("Decrypting memory...");
+            addText("Bypassing kernel.");
+            addText("Cleaning up... ");
+            addText("Success!");
+        }
+
+        function addText(text) {
+            logText = document.getElementById("log");
+            newText = document.createElement("p");
+            newText.id="logText";
+            newText.textContent = text;
+
+            logText.appendChild(newText);
+        }
+    </script>
+
+    <style>
+        body {
+            background: rgb(133,207,255);
+            background: linear-gradient(90deg, rgba(133,207,255,1) 0%, rgba(254,155,255,1) 100%);
+        }
+        p {
+
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size:4vw;
+
+            text-align: center;
+        }
+
+        #Title {
+            font-weight: 700;
+            text-align: center;
+            font-size:12vw;
+            padding-bottom: 0;
+        }
+
+        #SubText {
+            position:relative;
+            top: -10vw;
+        }
+
+        #log {
+            position: relative;
+            width: 80vw;
+            height: 40vh;
+            background-color: rgba(75, 75, 75, 0.461);
+            backdrop-filter: blur(15px);
+            border-radius: 2vw;
+            left: 10vw;
+            overflow-y: auto;
+        }
+        #logText {
+            position:relative;
+            top:3vh;
+            font-size:3vw;
+            text-align:left;
+            right:-3vw;
+            padding:0px;
+        }
+
+        button {
+            position: relative;
+            width: 80vw;
+            height: 7vh;
+            background-color: rgba(75, 75, 75, 0.461);
+            backdrop-filter: blur(15px);
+            border-radius: 2vw;
+            border:none;
+            font-size:7vw;
+            top: 10vh;
+            left: 10vw;
+
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+    
+    </style>
+</html>
