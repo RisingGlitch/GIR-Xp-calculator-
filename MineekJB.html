@@ -80,6 +80,7 @@
 
         if (isStandalone) {
             document.getElementById("content").innerHTML = `<iframe src="fakeJB.html" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>`;
+            document.body.style.color = "black";
         } else {
             // If not added to homescreen then show instructions
             document.getElementById("content").innerHTML = `
