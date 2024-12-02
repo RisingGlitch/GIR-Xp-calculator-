@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta charset="UTF-8">
@@ -76,13 +77,20 @@
 
         if (isStandalone) {
             // If added to homescreen then show iframe
-            document.getElementById("content").innerHTML = `<iframe src="fakeJB.html" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>`;
+            if (embedUrl) {
+                fetchAndSetMetadata(embedUrl);
+                document.getElementById("content").innerHTML = `<iframe src="${embedUrl}" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>`;
+            } else {
+                alert("No URL provided to embed.");
+                const baseUrl = `${window.location.origin}/add`;
+                window.location.href = baseUrl;
+            }
         } else {
             // If not added to homescreen then show instructions
             document.getElementById("content").innerHTML = `
                 <div class="instruction">
                     <p>Tap the <strong>Share</strong> <img src="https://img.icons8.com/?size=100&id=97424&format=png&color=000000" alt="" style="width: 30px; height: 30px;"> icon at the bottom of your screen, then scroll down until you see <strong>'Add to Home Screen'</strong> and hit add.</p>
-                    <p>  </p>
+                    <p> Code orginally from Kn0tzer's repo (https://github.com/Kn0tzer/Add-to-Homescreen/blob/main/embed/index.html) </p>
                 </div>
             `;
         }
