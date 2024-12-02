@@ -1,22 +1,98 @@
-<html>
-    <body>
-        <p> Welcome to MineekJB! Please add this page onto your homescreen through the share button and then clicking Add To Homescreen!</p>
-        <p> Thanks! </p>
-
-        <p> thxs to Kn0tzer for the fullscreen code btw! </p>
-    </body>
-    <script>
-        if(window.navigator.standalone) {
-            document.body.innerHTML = `<iframe src="fakeJB.html" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>`;
-        }
-    </script>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couldn't fetch title/icon</title>
     <style>
-        body {
-            background: black;
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        p {
-            color:white;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .instruction {
+            text-align: center;
+            padding: 20px;
+        }
+        #content {
+            width: 100%;
+            height: 100%;
         }
     </style>
+</head>
+<body>
+    <div id="content">
+        <p>Something has gone very... very wrong</p>
+    </div>
+    <script>
+        async function fetchAndSetMetadata(embedUrl) {
+            try {
+                // Get html
+                const response = await fetch(embedUrl);
+                const html = await response.text();
+
+                // Get html metadata
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+
+                // Title
+                const pageTitle = doc.querySelector("title");
+                if (pageTitle) {
+                    document.title = pageTitle.textContent;
+                }
+
+                // Favicon
+                const favicon = doc.querySelector("link[rel~='icon']");
+                if (favicon) {
+                    const link = document.createElement("link");
+                    link.rel = "icon";
+                    link.href = favicon.href.startsWith("http") ? favicon.href : new URL(favicon.href, embedUrl).href;
+                    document.head.appendChild(link);
+                }
+            } catch (error) {
+                console.error("Error fetching metadata:", error);
+            }
+        }
+
+        const rawQuery = window.location.search;
+        const match = rawQuery.match(/\?=(.+)/);
+        const embedUrl = match ? decodeURIComponent(match[1]) : null;
+
+        // Check if already added to home screen
+        const isStandalone = window.navigator.standalone;
+
+        if (isStandalone) {
+            // If added to homescreen then show iframe
+            if (embedUrl) {
+                fetchAndSetMetadata(embedUrl);
+                document.getElementById("content").innerHTML = `<iframe src="${embedUrl}" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>`;
+            } else {
+                alert("No URL provided to embed.");
+                const baseUrl = `${window.location.origin}/add`;
+                window.location.href = baseUrl;
+            }
+        } else {
+            // If not added to homescreen then show instructions
+            document.getElementById("content").innerHTML = `
+                <div class="instruction">
+                    <p>Tap the <strong>Share</strong> <img src="https://img.icons8.com/?size=100&id=97424&format=png&color=000000" alt="" style="width: 30px; height: 30px;"> icon at the bottom of your screen, then scroll down until you see <strong>'Add to Home Screen'</strong> and hit add.</p>
+                    <p>  </p>
+                </div>
+            `;
+        }
+    </script>
+</body>
 </html>
