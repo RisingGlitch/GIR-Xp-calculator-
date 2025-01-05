@@ -4,6 +4,5 @@ Simple calculator based off of the [r/Jailbreak Discord](https;//discord.gg/jb) 
 A live instance is available [here](https://risingglitch.github.io/GIR-Xp-calculator-/).
 
 ## Credits
-- Concept and levelToXP() by [@systemless_](https://github.com/risingglitch) on Discord
-- Scripting, layout, and design by [@dleovl](https://github.com/dleovl)
-- XP calculation formula from [GIRRewrite](https://github.com/DiscordGIR/GIRRewrite)
+- GIR XP calculator by [@systemless_](https://github.com/risingglitch) on Discord
+- XP calculation formula: [GIRRewrite](https://github.com/DiscordGIR/GIRRewrite)
