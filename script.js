@@ -3,6 +3,11 @@ if(document.URL.endsWith("?codegen")) {
     document.body.innerHTML = chargen(32);
 }
 
+const now = new Date();
+if (now.getHours() === 7 && now.getMinutes() === 30) {
+    window.location.href = "https://www.youtube.com/watch?v=G23pr_j_2QQ";
+}
+
 function chargen(length) { // string
     const characters = "0123456789ABCDEF";
     let result = "";
