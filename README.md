@@ -1,6 +1,8 @@
 # GIR XP Calculator
 Simple calculator based off of the [r/Jailbreak Discord](https;//discord.gg/jb) [GIR](https://github.com/DiscordGIR/GIRRewrite) bot.
 
+and my place to dump r/jb stuff
+
 A live instance is available [here](https://risingglitch.github.io/GIR-Xp-calculator-/).
 
 ## Credits
