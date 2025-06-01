@@ -56,21 +56,21 @@
 
             let string = setTimeout(newArea, timeOut);
 
-            writeText("Launching Exploit Chain...", 1000);
+            writeText("Launching Exploit Chain...", 0);
 
             kernel();
         }
 
         function kernel() {
             writeText("Initiating puaf_landa v2", 0);
-            writeText("Attempting to write to kernel...", 300);
+            writeText("Attempting to write to kernel...", 0);
             rand = Math.random()*8;
             for(let ind = 1; ind < rand; ind++) {
                 writeText("Sending packet... ("+ind+")", 1);
-                writeText("Failed... Retrying...", 800);
+                writeText("Failed... Retrying...", 0);
             }
             if(rand <= 1) {
-                writeText("Sending packet... (1)", 1000);
+                writeText("Sending packet... (1)", 0);
             }
 
             writeText("Success! ", 0);
@@ -82,7 +82,7 @@
 
         function PAC() {
             writeText("Initiating Alfie's Secret Pack Bypass", 0);
-            writeText("Attempting to bypass PAC...", 4000);
+            writeText("Attempting to bypass PAC...", 0);
             if(Math.random()*3 > 1) {
                 writeText("Exploit failed, kernel access lost, retrying kernel exploit...", 0);
                 string = setTimeout(newArea, timeOut);
@@ -96,10 +96,10 @@
 
         function SPTM() {
             writeText("Launching Coretrust bypass V69...", 0);
-            writeText("Attempting to bypass SPTM...", 300);
+            writeText("Attempting to bypass SPTM...", 0);
             rand = Math.random()*8;
             for(let ind = 1; ind < rand; ind++) {
-                writeText("Sending packet... ("+ind+")", 1000);
+                writeText("Sending packet... ("+ind+")", 0);
                 writeText("Failed... Retrying...", 0);
                 if(Math.random()*3 < 1) {
                     writeText("Kernel access lost. Retrying kernel exploit...", 0);
@@ -109,9 +109,9 @@
                 }
             }
             if(rand <= 1) {
-                writeText("Sending packet... (1)", 1000);
+                writeText("Sending packet... (1)", 0);
             }
-            writeText("Success! You are now fake jailbroken!", 0);
+            queneText();
         }
 
         function writeText(textCon, timeOutTime) {
@@ -119,6 +119,25 @@
             let string2 = setTimeout(function() {
                 textAdd(textCon)
             }, timeOut);
+        }
+        function queneText() {
+            let string2 = setTimeout(function() {
+                endText()
+            }, timeOut);
+        }
+
+        function endText() {
+            logText = document.getElementById("log");
+            addText("Jailbreak completed! Click the next button to install Cydia v2!");
+
+            let link = document.createElement("a");
+            link.href = "https://youtu.be/xvFZjo5PgG0";
+            link.textContent = "Install Cydia v2";
+            link.style.display = "block";
+            link.id = "link";
+            link.style.marginTop = "10px"; 
+
+            logText.prepend(link);
         }
 
         function newArea() {
@@ -218,6 +237,24 @@
             border-radius: 2vw;
             left: 30vw;
             border:none;
+        }
+
+        #link {
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size:4vw;
+            font-weight: 500;
+            font-style: normal;
+            position:relative;
+            white-space:pre;
+            top:3vh;
+            font-size:2vw;
+            text-align:left;
+            right:-3vw;
+            padding:0px;
+            color:greenyellow;
         }
     
     </style>
