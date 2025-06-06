@@ -56,24 +56,24 @@
 
             let string = setTimeout(newArea, timeOut);
 
-            writeText("Launching Exploit Chain...", 0);
+            writeText("Launching Exploit Chain...", 500);
 
             kernel();
         }
 
         function kernel() {
-            writeText("Initiating puaf_landa v2", 0);
-            writeText("Attempting to write to kernel...", 0);
+            writeText("Initiating puaf_landa v2", 500);
+            writeText("Attempting to write to kernel...", 500);
             rand = Math.random()*8;
             for(let ind = 1; ind < rand; ind++) {
-                writeText("Sending packet... ("+ind+")", 1);
-                writeText("Failed... Retrying...", 0);
+                writeText("Sending packet... ("+ind+")", 500);
+                writeText("Failed... Retrying...", 500);
             }
             if(rand <= 1) {
-                writeText("Sending packet... (1)", 0);
+                writeText("Sending packet... (1)", 500);
             }
 
-            writeText("Success! ", 0);
+            writeText("Success! ", 1000);
 
             string = setTimeout(newArea, timeOut);
 
@@ -81,10 +81,10 @@
         }
 
         function PAC() {
-            writeText("Initiating Alfie's Secret Pack Bypass", 0);
-            writeText("Attempting to bypass PAC...", 0);
+            writeText("Initiating Alfie's Secret Pack Bypass", 500);
+            writeText("Attempting to bypass PAC...", 500);
             if(Math.random()*3 > 1) {
-                writeText("Exploit failed, kernel access lost, retrying kernel exploit...", 0);
+                writeText("Exploit failed, kernel access lost, retrying kernel exploit...", 500);
                 string = setTimeout(newArea, timeOut);
                 kernel();
                 return
@@ -95,14 +95,14 @@
         }
 
         function SPTM() {
-            writeText("Launching Coretrust bypass V69...", 0);
-            writeText("Attempting to bypass SPTM...", 0);
+            writeText("Launching Coretrust bypass V69...", 500);
+            writeText("Attempting to bypass SPTM...", 500);
             rand = Math.random()*8;
             for(let ind = 1; ind < rand; ind++) {
-                writeText("Sending packet... ("+ind+")", 0);
-                writeText("Failed... Retrying...", 0);
+                writeText("Sending packet... ("+ind+")", 500);
+                writeText("Failed... Retrying...", 500);
                 if(Math.random()*3 < 1) {
-                    writeText("Kernel access lost. Retrying kernel exploit...", 0);
+                    writeText("Kernel access lost. Retrying kernel exploit...", 500);
                     string = setTimeout(newArea, timeOut);
                     kernel();
                     return;
